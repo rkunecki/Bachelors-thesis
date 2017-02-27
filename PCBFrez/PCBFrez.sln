@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCBFrez", "PCBFrez\PCBFrez.csproj", "{915F41F5-CE06-401B-9D04-620C4F3593D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G-CodeConvertionTest", "G-CodeConvertionTest\G-CodeConvertionTest.csproj", "{BB7FC61C-EC6C-49C9-9EB0-1EDBB63F22C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeListing", "CodeListing\CodeListing.csproj", "{5D05FA84-5D36-44DB-AE30-CDAEE0C769BD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{915F41F5-CE06-401B-9D04-620C4F3593D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915F41F5-CE06-401B-9D04-620C4F3593D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915F41F5-CE06-401B-9D04-620C4F3593D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915F41F5-CE06-401B-9D04-620C4F3593D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB7FC61C-EC6C-49C9-9EB0-1EDBB63F22C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7FC61C-EC6C-49C9-9EB0-1EDBB63F22C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7FC61C-EC6C-49C9-9EB0-1EDBB63F22C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7FC61C-EC6C-49C9-9EB0-1EDBB63F22C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D05FA84-5D36-44DB-AE30-CDAEE0C769BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D05FA84-5D36-44DB-AE30-CDAEE0C769BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D05FA84-5D36-44DB-AE30-CDAEE0C769BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D05FA84-5D36-44DB-AE30-CDAEE0C769BD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿<Window x:Class="PCBFrez.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Konfiguracja portu" Height="350" Width="250" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="130"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="0">
+            <TextBlock Margin="20">Port</TextBlock>
+            <TextBlock Margin="20">Prędkość</TextBlock>
+            <TextBlock Margin="20">Bity danych</TextBlock>
+            <TextBlock Margin="20">Bity parzystości</TextBlock>
+            <TextBlock Margin="20">Bity stopu</TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+            <ComboBox Name="cbPort" Margin="15,20,28,15"/>
+            <ComboBox Name="cbBaudrate" Margin="15,20,28,20">
+                <ComboBoxItem>2400</ComboBoxItem>
+                <ComboBoxItem>4800</ComboBoxItem>
+                <ComboBoxItem>9600</ComboBoxItem>
+                <ComboBoxItem>14400</ComboBoxItem>
+                <ComboBoxItem>19200</ComboBoxItem>
+                <ComboBoxItem>28800</ComboBoxItem>
+                <ComboBoxItem>38400</ComboBoxItem>
+                <ComboBoxItem>57600</ComboBoxItem>
+                <ComboBoxItem>76800</ComboBoxItem>
+                <ComboBoxItem>115200</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="cbDataBits" Margin="15,15,28,15">
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="cbParityBits" Margin="15,15,28,15">
+                <ComboBoxItem>Brak</ComboBoxItem>
+                <ComboBoxItem>Suma parzysta</ComboBoxItem>
+                <ComboBoxItem>Suma nieparzysta</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Name="cbStopBits" Margin="15,15,28,15">
+                <ComboBoxItem>0</ComboBoxItem>
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <Button Name="buttonOK_SettingsPort" Margin="25,10" Grid.Column="0" Grid.Row="1" FontSize="12" Click="buttonOK_SettingsPort_Click">Zatwierdź</Button>
+        <Button Name="buttonCancel_SettingsPort" Margin="25,10,40,10" Grid.Column="1" Grid.Row="1" FontSize="12" Click="buttonCancel_SettingsPort_Click">Anuluj</Button>
+    </Grid>
+</Window>

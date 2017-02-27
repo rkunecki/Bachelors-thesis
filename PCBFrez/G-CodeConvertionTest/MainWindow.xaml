@@ -1,0 +1,32 @@
+﻿<Window x:Class="G_CodeConvertionTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="G-Code Convertion Test Program" Height="600" Width="800" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closed="Window_Closed" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="430"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <TextBox Name="TB_GCodeView" HorizontalAlignment="Left" Height="410" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="380"/>
+        <TextBox Name="TB_OperationView" ScrollViewer.VerticalScrollBarVisibility="Auto"  Grid.Column="1" HorizontalAlignment="Left" Height="410" Margin="10,10,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="365"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Otwarty G-Code" VerticalAlignment="Top" Height="30" Width="111"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Wyniki operacji" VerticalAlignment="Top" Height="18" Width="139"/>
+        <Button Name="BTN_Open" Content="Otwórz" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Open_Click"/>
+        <Button Name="BTN_Start" Content="Start" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Start_Click"/>
+        <Button Name="BTN_Stop" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" Click="BTN_Stop_Click"/>
+        <ProgressBar Name="PB_StatusBar" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="765" Grid.ColumnSpan="2"/>
+        <TextBlock Text="{Binding ElementName=PB_StatusBar, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Left" Margin="388,10,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="22" Width="47"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="154,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Ilość przetworzonych lini:" VerticalAlignment="Top" Height="30" Width="134"/>
+        <TextBlock Name="TBlock_NumberOfLines" HorizontalAlignment="Left" Margin="182,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="208"/>
+        <TextBlock HorizontalAlignment="Left" Margin="126,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Ilość lini:" VerticalAlignment="Top" Height="30" Width="51"/>
+        <TextBlock Name="TBlock_ConvertedLines" Grid.Column="1" HorizontalAlignment="Left" Margin="293,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="91"/>
+        <TextBlock Name="TBlock_StatusText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+
+    </Grid>
+</Window>

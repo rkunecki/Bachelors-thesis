@@ -1,0 +1,101 @@
+﻿<Window x:Class="PCBFrez.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PCBFrez v0.6" Height="600" Width="800" ResizeMode="CanMinimize" Closed="Window_Closed" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="500"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Plik">
+                    <MenuItem Header="_Otwórz" Click="menuOpen_Click"/>
+                    <Separator/>
+                    <MenuItem Name="menuStart" Header="_Start" Click="menuStart_Click"/>
+                    <MenuItem Name="menuPauza" Header="_Pauza" Click="menuPauza_Click"/>
+                    <MenuItem Name="menuStop" Header="_Stop" Click="menuStop_Click"/>
+                    <Separator/>
+                    <MenuItem Header="_Wyjście" Click="menuExit_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Połączenie">
+                    <MenuItem Name="menuConnect" Header="_Połacz" Click="menuConnect_Click"/>
+                    <MenuItem Name="menuDisconnect" Header="_Rozłącz" Click="menuDisconnect_Click"/>
+                    <Separator/>
+                    <MenuItem Name="menuBased" Header="_Bazuj" Click="menuBased_Click"/>
+                    <MenuItem Name="menuTest" Header="_Test" Click="menuTest_Click"/>
+                </MenuItem>
+                <MenuItem Header="Ustawienia">
+                    <MenuItem Header="_Konfiguracja portu" Click="menuSettingsPort_Click"/>
+                    <MenuItem Header="_Konfiguracja frezarki" Click="menuSettingsMillingMachine_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Pomoc">
+                    <MenuItem Header="_O programie" Click="menuAboutProgram_Click"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <WrapPanel Grid.Row="1">
+            <Separator Margin="15"/>
+            <Button Margin="10" Height="60" Width="60" Click="menuOpen_Click">Otwórz</Button>
+            <Button Name="buttonConnect" Margin="10" Height="60" Width="60" Click="menuConnect_Click">Połącz</Button>
+            <Button Name="buttonDisconnect" Margin="10" Height="60" Width="60" Click="menuDisconnect_Click" IsEnabled="False">Rozłącz</Button>
+            <Separator Margin="20"/>
+            <Button Name="buttonStart" Margin="10" Height="60" Width="60" Click="menuStart_Click" IsEnabled="False">Start</Button>
+            <Button Name="buttonPauza" Margin="10" Height="60" Width="60" Click="menuPauza_Click" IsEnabled="False">Pauza</Button>
+            <Button Name="buttonStop" Margin="10" Height="60" Width="60" Click="menuStop_Click" IsEnabled="False">Stop</Button>
+            <Separator Margin="20"/>
+            <Button Name="buttonBased" Margin="10" Height="60" Width="60" Click="menuBased_Click">Bazuj</Button>
+            <Button Name="buttonTest" Margin="10" Height="60" Width="60" Click="menuTest_Click">Test</Button>
+        </WrapPanel>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="380" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="350"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="130"/>
+            </Grid.RowDefinitions>
+
+            <DockPanel Grid.Column="0" Grid.Row="0">
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                    <TextBlock DockPanel.Dock="Top" Margin="10" FontSize="16" FontWeight="Bold">Podgląd G-Code</TextBlock>
+                    <Button Name="bEditGCodeWindow" Margin="10" Click="bEditGCodeWindow_Click" IsEnabled="True">Edytuj</Button>
+                    <Button Name="bCloseEditGCodeWindow" Margin="10" Click="bCloseEditGCodeWindow_Click" IsEnabled="False">Zapisz</Button>
+                </StackPanel>
+                <TextBox ScrollViewer.VerticalScrollBarVisibility="Auto" DockPanel.Dock="Bottom" Name="GCode_window" IsReadOnly="True" Margin="10,0,0,0" AcceptsReturn="True"/>
+            </DockPanel>
+
+            <TextBlock Margin="10" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top">Postęp pracy frezarki</TextBlock>
+            <ProgressBar Name="pbStatus" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="0" Height="40" Width="400" Minimum="0" Maximum="100" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding ElementName=pbStatus, Path=Value, StringFormat={}{0:0}%}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Grid Grid.Column="1" Grid.Row="0">
+                <TextBlock Margin="10,43,10,287" Height="20">Połączenie:</TextBlock>
+                <TextBlock Name="statusConnection" Background="Red" Margin="10,68,10,262" Height="20"/>
+
+                <TextBlock Margin="10,125,10,205" Height="20">Stan pracy frezarki:</TextBlock>
+                <TextBlock Name="statusWork" Background="Red" Margin="10,150,10,180" Height="20"/>
+
+                <TextBlock Margin="35,295,6,35" Height="20">Bazowanie</TextBlock>
+                <TextBlock Name="statusBased" Background="Red" Margin="10,295,90,35" Height="20" Width="20"/>
+
+                <TextBlock Margin="35,320,6,10" Height="20">Test</TextBlock>
+                <TextBlock Name="statusTest" Background="Red" Margin="10,320,90,10" Height="20" Width="20"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="35,215,0,0" Text="Flaga" VerticalAlignment="Top" Width="75"/>
+                <TextBlock Name="statusFlag" Background="Red" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="20" Height="20"/>
+
+            </Grid>
+            <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" FontWeight="Bold" FontSize="16">Podgląd</TextBlock>
+            <Image Name="imageViewWindow" Grid.Column="2" HorizontalAlignment="Left" Height="419" Margin="10,36,0,0" VerticalAlignment="Top" Width="354" Grid.RowSpan="3"/>
+
+        </Grid>
+    </Grid>
+</Window>
